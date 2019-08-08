@@ -21,10 +21,11 @@ app.set("view engine", "handlebars");
 // Import routes and give the server access to them.
 var routes = require("./controllers/burgerz_contoller.js");
 
-app.use(routes);
+app.use(express.static('./public'));
 
-// Start our server so that it can begin listening to client requests.
-app.listen(PORT, function() {
-    // Log (server-side) when our server has started
-    console.log("Server listening on: http://localhost:" + PORT);
+//syncing our sequlize models and then starting our express app
+db.sequelize.sync({ force: true }).then(function() {
+    app.listen(PORT, function() {
+        console.log("listenning on http://localhost:" + PORT);
+    });
 });
