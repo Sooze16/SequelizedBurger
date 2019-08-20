@@ -19,9 +19,10 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-var routes = require("./controllers/burgerz_contoller.js");
+var routes = require("./controllers/burgers_contoller.js");
 
 app.use(express.static('./public'));
+app.use(routes)
 
 //syncing our sequlize models and then starting our express app
 db.sequelize.sync({ force: true }).then(function() {

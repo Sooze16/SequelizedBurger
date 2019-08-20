@@ -1,68 +1,122 @@
-console.log("controller loaded")
+// console.log("controller loaded")
+var db = require("../models");
+
 var express = require("express");
 
 var router = express.Router();
 
-var burger = require("../models/burger");
+
+console.log("controller loaded")
 
 router.get("/", function(req, res) {
 
+    console.log("route get")
 
-    burger.selectAll(function(data) {
-        var hdbrsObject = {
-            burgers: data
-        };
-        console.log(hdbrsObject);
-        res.render("index", hdbrsObject);
+    db.Burgerz.findAll({})
+        .then(function(data) {
+            var hdbrsObject = {
+                burgers: data
+            };
+            console.log(hdbrsObject);
+            res.render("index", hdbrsObject);
 
-    });
+        });
+});
+
+router.get("/home", function(req, res) {
+
+    console.log("route get home")
+
+    db.Burgerz.findAll({})
+        .then(function(data) {
+            var hdbrsObject = {
+                burgers: data
+            };
+            console.log(hdbrsObject);
+            res.render("index", hdbrsObject);
+
+        });
 });
 
 router.post("/api/burgers", function(req, res) {
     console.log(req.body)
 
-    burger.create(["burger_name", "devoured"],
+    db.Burgerz.create({
+            text: req.body.burgerName,
+            complete: false,
 
-        [req.body.burgerName, false],
-        function(result) {
+        })
+        .then(function(resBurger) {
+            res.json(resBurger)
 
-            res.json({ id: result.insertId });
-        }
+        })
 
-    );
+    // burger.create(["burger_name", "devoured"],
+
+    //     [req.body.burgerName, false],
+    //     function(result) {
+
+    //         res.json({ id: result.insertId });
+    //     }
+
+    // );
+
+
+
 });
 
 router.put("/api/burgers/:id", function(req, res) {
-    console.log("router");
-    var condition = "id = " + req.params.id;
 
-    console.log("condition", condition);
-    console.log('!!!', req.body.devoured);
+    db.Burgerz.update({
+            complete: true,
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(function(resBurger) {
+            res.json(resBurger);
+        })
+        // console.log("router");
+        // var condition = "id = " + req.params.id;
+
+    // console.log("condition", condition);
+    // console.log('!!!', req.body.devoured);
 
 
-    burger.update({ devoured: req.body.devoured }, condition, function(result) {
-        if (result.changedRows == 0) {
-            console.log('I am a 404 error')
-            return res.status(404).end();
+    // burger.update({ devoured: req.body.devoured }, condition, function(result) {
+    //     if (result.changedRows == 0) {
+    //         console.log('I am a 404 error')
+    //         return res.status(404).end();
 
-        } else {
-            res.status(200).end();
-        }
+    //     } else {
+    //         res.status(200).end();
+    //     }
 
-    });
+    // });
 });
 
 router.delete("/api/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
+    // var condition = "id = " + req.params.id;
 
-    console.log("delete condition", condition);
+    console.log("delete condition", req.params.id);
 
-    burger.delete(condition, function(result) {
+    db.Burgerz.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(function(resBurger) {
 
-        res.status(200).end();
+            res.json(resBurger);
+        })
+
+    // burger.delete(condition, function(result) {
+
+    //     res.status(200).end();
 
 
-    });
+    // });
 });
 
 module.exports = router;

@@ -13,7 +13,7 @@
                     <input type="text" class="form-control-sm" id="newburger" name="burger">
 
 
-                    <button type="submit"  class="btn btn-success pull-right" id="addburger"><span class="fa fa-thumbs-up"></span></button>
+                    <button type="submit"  class="btn btn-success" id="addburger"><span class="fa fa-thumbs-up"></span></button>
                 </div>
             </form>
         </card>
@@ -28,9 +28,9 @@
 
                     <ul>
                         {{#each burgers}}
-                        {{#unless devoured}}
+                        {{#unless complete}}
 
-                        <span><strong> {{this.id}} - {{this.burger_name}}</strong></span>
+                        <span><strong> {{this.id}} - {{this.text}}</strong></span>
                         <button type="button" class="eatBurger btn btn-warning" id="eatButton" data-id="{{this.id}}"
                             data-newDevoured="{{devour}}"><span class="fa fa-usd"></span></button>
                         <hr>
@@ -49,8 +49,8 @@
                 <div class="card-body">
                     <ul>
                         {{#each burgers}}
-                        {{#if devoured}}
-                        <span><strong> {{this.id}} - {{this.burger_name}}</strong></span>
+                        {{#if complete}}
+                        <span><strong> {{this.id}} - {{this.text}}</strong></span>
                         <button type="button" class="trashBurger btn btn-danger" id="trashButton" data-id="{{this.id}}"
                             data-newDevoured="{{devour}}"><span class="fa fa-cutlery"></span></button>
                         <hr>
