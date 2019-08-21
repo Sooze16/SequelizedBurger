@@ -1,9 +1,9 @@
 {
     "development": {
-        "username": "Sooze16",
-        "password": "Gidget@Kramer",
+        "username": "hiefzzgpm9mbgu3k",
+        "password": "ohmzs07ee3fqyepq",
         "database": "burgerz_db",
-        "host": "127.0.0.1",
+        "host": "gzp0u91edhmxszwf.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
         "dialect": "mysql",
         "operatorsAliases": false
     },
@@ -16,11 +16,7 @@
         "operatorsAliases": false
     },
     "production": {
-        "username": "root",
-        "password": null,
-        "database": "database_production",
-        "host": "127.0.0.1",
-        "dialect": "mysql",
-        "operatorsAliases": false
+        "use_env_variable": "JAWSDB_URL",
+        "dialect": "mysql"
     }
 }
