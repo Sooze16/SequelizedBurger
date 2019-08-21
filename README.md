@@ -1,10 +1,9 @@
 # SequelizedBurger
 
-# Eat-Da-Burger
 <p> Homework for week 15 of NU Bootcamp.  A full stack, MVC(Mode-View-Controller) application utilizing (POST) requests to create your burger and (GET) requests to choose that burger and (DELETE) to pick up that burger once ready or "devoured". This is a re-work of week 14 homework by rewritng the ORM utilizing Sequelize.</p>
 
 
-![Live](https://sequelize-burger-susan.herokuapp.com)
+* Live: https://sequelize-burger-susan.herokuapp.com
   
 
 ###  How the app works:
