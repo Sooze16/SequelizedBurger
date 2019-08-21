@@ -31,14 +31,20 @@ This project uses MySQL, Node, Express, Handlebars, Sequelize. Node and MySQL ar
 
 ### Screen Shots:
 
-![img1](./public.assets/images/Img1.png)
+#### Enter the burger you would like to order in the "order here" text field. Click "thumbs up" if that is what you would like.
+![img1](./public/assets/images/Img1.PNG)
+
+#### The order will go to the cashier box - click on the payment icon when ready.  
+![img1](./public/assets/images/Img2.PNG)
 
 
-![img1](./public.assets/images/Img2.png)
+#### The burger will go to the pick up window.
 
-![img1](./public.assets/images/Img3.png)
+![img1](./public/assets/images/Img3.PNG)
 
-![img1](./public.assets/images/Img4.png)
+#### Click on the cutlery icon to pick up your burger and the order will be removed. YUM!
+
+![img1](./public/assets/images/Img4.PNG)
 
 
 ## Acknowledgments 
