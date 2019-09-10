@@ -5,6 +5,8 @@
 ![BURGER](./public/assets/images/thick-burger-vector.jpg)
 
 
+
+
 ## Live: https://sequelize-burger-susan.herokuapp.com
   
 
